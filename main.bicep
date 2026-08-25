@@ -129,11 +129,6 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
             cpu: json('0.5')
             memory: '1Gi'
           }
-          ports: [
-            {
-              containerPort: 8080
-            }
-          ]
           volumeMounts: [
             {
               volumeName: 'files'
