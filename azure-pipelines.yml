@@ -34,6 +34,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/main.bicep'
+    PathtoPublish: 'main.bicep'
     ArtifactName: 'bicep-templates'
     publishLocation: 'Container'
