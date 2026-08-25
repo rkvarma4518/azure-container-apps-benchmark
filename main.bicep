@@ -66,12 +66,6 @@ resource containerEnv 'Microsoft.App/managedEnvironments@2023-05-01' = {
         name: 'Consumption'
         workloadProfileType: 'Consumption'
       }
-      {
-        name: 'dedicated-d4'
-        workloadProfileType: 'D4'        // 16 vCPU / 64 GB — covers your 2 vCPU + 32 GB request
-        minimumCount: 1
-        maximumCount: 2
-      }
     ]
   }
 }
@@ -99,7 +93,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
   ]
   properties: {
     managedEnvironmentId: containerEnv.id
-    workloadProfileName: 'dedicated-d4'
+    workloadProfileName: 'Consumption'
     configuration: {
       registries: [
         {
