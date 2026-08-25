@@ -126,7 +126,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
           name: toLower('${containerAppName}-test')
           image: imageName
           resources: {
-            cpu: '0.5'
+            cpu: json('0.5')
             memory: '1Gi'
           }
           ports: [
