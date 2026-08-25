@@ -17,17 +17,23 @@ steps:
       $(Build.BuildId)
 
 # Deploy Bicep using Azure CLI
-- task: AzureCLI@2
-  displayName: 'Deploy Bicep file'
+# - task: AzureCLI@2
+#   displayName: 'Deploy Bicep file'
+#   inputs:
+#     azureSubscription: 'azure devops (0e72310f-1fed-4144-804a-250579cfd2ea)'
+#     scriptType: 'bash'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: |
+#       az deployment group create \
+#         --resource-group azure-devops \
+#         --template-file main.bicep \
+#         --debug \
+#         --verbose \
+#         --parameters imageTag="$(Build.BuildId)"
+#     workingDirectory: $(System.DefaultWorkingDirectory)
+
+- task: PublishBuildArtifacts@1
   inputs:
-    azureSubscription: 'azure devops (0e72310f-1fed-4144-804a-250579cfd2ea)'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      az deployment group create \
-        --resource-group azure-devops \
-        --template-file main.bicep \
-        --debug \
-        --verbose \
-        --parameters imageTag="$(Build.BuildId)"
-    workingDirectory: $(System.DefaultWorkingDirectory)
+    PathtoPublish: '$(Build.SourcesDirectory)/main.bicep'
+    ArtifactName: 'bicep-templates'
+    publishLocation: 'Container'
