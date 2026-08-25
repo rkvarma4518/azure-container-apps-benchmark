@@ -20,7 +20,7 @@ steps:
 - task: AzureCLI@2
   displayName: 'Deploy Bicep file'
   inputs:
-    azureSubscription: 'az-resource-manager'
+    azureSubscription: 'azure devops (0e72310f-1fed-4144-804a-250579cfd2ea)'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
