@@ -10,7 +10,7 @@ steps:
   displayName: 'Build and Push Docker Hub Image'
   inputs:
     command: buildAndPush
-    containerRegistry: 'dockerhub'
+    containerRegistry: 'DockerHub Conn'
     repository: 'rkvarma4518/myflaskcsvapp'
     dockerfile: '**/Dockerfile'
     tags: |
